@@ -1,0 +1,12 @@
+$ git log
+commit b9d704ce38ba583be879aafbfa60deee6cab522c (HEAD -> master)
+Author: Polina-Lelis <polina.lelis@mail.ru>
+Date:   Tue Feb 18 09:54:13 2020 +0300
+
+    add status.txt
+
+commit b915b8628e20b7e396343009e79c30d597d7190d
+Author: Polina-Lelis <polina.lelis@mail.ru>
+Date:   Tue Feb 18 09:52:30 2020 +0300
+
+    add .gitignore
