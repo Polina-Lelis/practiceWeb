@@ -1,0 +1,3 @@
+Send a GET request to newton with a url-encoded math expression and your preferred operation.
+Get back a JSON response with your problem solved.
+In my requests i use factor, integrate and cosine operations.

@@ -1,0 +1,17 @@
+Company Autocomplete is an API that lets you auto-complete company names and retreive logo and domain information.
+
+i sent requests with paritial company name and Responses will include the following three fields:
+domain-Domain name of company
+logo-URL to logo
+name-Name of the company
+
+You can call the API directly from an html img tag - images are returned inline.
+You will get an image of logo.
+
+You can also optionally pass us the following parameters.
+size-integer
+(optional) image size: length of longest side in pixels (default is 128)
+format-string
+(optional) image format, either "png" or "jpg" (defaults to png)
+greyscale-boolean
+(optional) Desaturates image if passed (defaults to false)

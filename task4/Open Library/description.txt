@@ -1,0 +1,24 @@
+The API allows requesting information on one or more books using ISBNs, 
+OCLC Numbers, LCCNs and OLIDs (Open Library IDs).
+The API supports the following query parameters.
+bibkeys:List of IDs to request the information. The API supports ISBNs, LCCNs, OCLC numbers and OLIDs (Open Library IDs).
+
+The Data Format:
+
+bib_key-Identifier used to query this book.
+
+info_url-A URL to the book page in the Open Library.
+
+preview-Preview state - either "noview" or "full".
+
+preview_url-A URL to the preview of the book.
+
+This links to the archive.org page when a readable version of the book is available, otherwise it links to the book page on openlibrary.org.
+
+thumbnail_url-A URL to a thumbnail of the cover of the book. This is provided only when thumbnail is available.
+
+In request1 i'd like to find all books using keys such as "author" and "title".
+And after that i get the list of all possible books with this title and author.
+
+In request2 and request3 i'd like to find 2 books using only 2 parameters:format and bebkeys(ISBN, LCCN).
+And i get bib_key, preview, preview_url, info_url.
