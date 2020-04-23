@@ -1,5 +1,169 @@
 "use strict";
 
+// class PostList{
+
+//                 constructor (posts){
+//                   this.posts = new Array ()
+//                 }
+
+
+
+
+//                  removePost(idElement) {
+//                     for (var i = 0; i < posts.length; i++) {
+//                         if (idElement === posts[i].id) {
+//                             console.log("Post deleted");
+//                             console.log(posts[i]);
+//                             posts.splice(i, 1);
+//                             return true;
+//                         }
+//                     }
+//                     console.log("No such post");
+//                     return false;
+//                   }
+
+
+//                   editPost(idElement, post) {
+//                     var postId = getPostIndexById(idElement);
+
+//                     if (validatePost(posts[postId]) !== true) {
+//                       console.log("Invalid post");
+//                       return false;
+//                     }
+
+//                     if (typeof post.description === 'string') {
+//                       posts[postId].description = post.description;
+//                       console.log("description changed in post");
+//                     }
+
+//                     else if (typeof post.description !== 'undefined') {
+//                       console.log("Invalid post edition! (description)");
+//                       return false;
+//                     }
+
+//                     if (typeof post.photoLink === 'string') {
+//                       posts[postId].photoLink = post.photoLink;
+//                       console.log("photolink changed in post");
+//                     }
+
+//                     else if (typeof post.photoLink !== 'undefined') {
+//                       console.log("Invalid post edition! (photolink)");
+//                       return false;
+//                     }
+
+//                     if (typeof post.hashTags === 'object') {
+//                     posts[postId].hashTags = post.hashTags;
+//                     }
+
+//                     else if (typeof post.hashTags !== 'undefined') {
+//                       console.log("Invalid post edition! (hashTags)");
+//                       return false;
+//                     }
+
+//                     if (typeof post.likes === 'object') {
+//                       posts[postId].likes = post.likes;
+//                     }
+
+//                     else if (typeof post.likes !== 'undefined') {
+//                       console.log("Invalid post edition! (likes)");
+//                       return false;
+//                     }
+
+//                     return true;
+//                   }
+
+
+//                   getPostIndexById(idElement) {
+//                     for(var i = 0; i < posts.length; i++){
+//                        if(idElement == posts[i].id){
+//                          console.log (posts[i]);
+//                          return i;
+//                        }
+//                     }
+//                   }
+
+
+//                   validatePost(post){
+//                     if ((typeof post.id !== 'string')||
+//                         (typeof post.description !== 'string')||(typeof post.createdAt !== 'object')
+//                       ||(typeof post.author !== 'string')||(typeof post.likes !== 'object')) {
+//                         //console.log("Invalid post");
+//                         return false;
+//                     }
+//                     //console.log("Valid post");
+//                     return true;
+//                   }
+
+
+
+//                   addPost(post){
+//                     if(validatePost(post) == true){
+//                       posts.push(post);
+//                       console.log ("Post added");
+//                       return true;
+//                     }
+//                     else {
+//                       console.log ("Post not added");
+//                       return false;
+//                     }
+//                   }
+
+   
+  
+
+//                   getPosts(skip, top, filterConfig) {
+//                     let newposts = posts;
+
+//                     if (typeof filterConfig.createdAt === 'object') {
+//                        newposts = newposts.filter(item => item.createdAt === filterConfig.createdAt);
+//                     }
+                      
+//                     if (typeof filterConfig.author === 'string') {
+//                        newposts = posts.filter(item => item.author === filterConfig.author);
+//                     }
+
+//                     if (typeof filterConfig.hashTags === 'object') {
+//                         var valid = true;
+//                         for (let i of filterConfig.hashTags) {
+//                           if (typeof i !== 'string') {
+//                              valid = false;
+//                              break;
+//                           }
+//                         }
+//                         if (valid === true) {
+//                           newposts = newposts.filter(function(item){
+//                           var answer = true;
+//                           for (let i of filterConfig.hashTags) {
+//                             if (item.hashTags.includes(i) === false) {
+//                               answer = false;
+//                               break;
+//                             }
+//                           }
+//                           return answer;
+//                           });
+//                         }
+//                       }
+
+//                     newposts.sort(function(firstPost, secondPost){
+//                         return secondPost.createdAt - firstPost.createdAt; 
+//                     })
+
+//                     newposts = newposts.slice(skip, skip + top);
+
+
+//                     for(var i = 0; i < newposts.length; i ++){
+//                         console.log(newposts[i]);
+//                     }
+
+//                     return newposts;
+//                   }
+
+
+
+
+// }
+
+
 var posts = [
 
  {
@@ -236,6 +400,7 @@ var posts = [
 
 (function() {
   "use strict";
+  
   var post = {
    id: '3',
    description: 'Just chill',
@@ -260,16 +425,14 @@ var posts = [
   function validatePost(post){
     if ((typeof post.id !== 'string')||(typeof post.description !== 'string')||(typeof post.createdAt !== 'object')
       ||(typeof post.author !== 'string')||(typeof post.likes !== 'object')) {
-          console.log("Invalid post");
           return false;
     }
-    console.log("Valid post");
-    return true;
+    //return true;
   }
 
 
   function addPost(post){
-     if(validatePost(post) == true){
+     if(!validatePost(post)){
         posts.push(post);
         console.log ("Post added");
         return true;
@@ -335,7 +498,7 @@ var posts = [
   function editPost(idElement, post) {
       var postId = getPostIndexById(idElement);
 
-      if (validatePost(posts[postId]) !== true) {
+      if (validatePost(posts[postId])) {
         console.log("Invalid post");
         return false;
       }
@@ -373,10 +536,9 @@ var posts = [
         console.log("Invalid post edition! (likes)");
         return false;
       }
-
-
       return true;
     }
+
 
     function removePost(idElement) {
     for (var i = 0; i < posts.length; i++) {
@@ -394,7 +556,7 @@ var posts = [
 
 
   function editPost(idElement, post){
-      if(validatePost(post) == true){
+      if(!validatePost(post)){
         for (var i = 0; i < posts.length; i++) {
           if(idElement == posts[i].id){
              posts[i].photoLink = post.photolink;
@@ -409,9 +571,11 @@ var posts = [
   console.log("Is this post valid?");
   console.log("\n");
   validatePost(posts[0]);
+  console.log("Invalid post");
   console.log(posts[0]);
   console.log("\n");
   validatePost(posts[1]);
+  console.log("valid post");
   console.log(posts[1]);
   console.log("\n");
 

@@ -1,3 +1,5 @@
+package main.java.bsu.com;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Enumeration;

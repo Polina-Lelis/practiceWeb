@@ -5,7 +5,7 @@
          version="4.0">
     <servlet>
         <servlet-name>Servlet</servlet-name>
-        <servlet-class>Servlet</servlet-class>
+        <servlet-class>main.java.bsu.com.Servlet</servlet-class>
     </servlet>
     
     <servlet-mapping>
@@ -15,7 +15,7 @@
 
     <servlet>
         <servlet-name>Servlet_Post</servlet-name>
-        <servlet-class>Servlet_Post</servlet-class>
+        <servlet-class>main.java.bsu.com.Servlet_Post</servlet-class>
     </servlet>
 
     <servlet-mapping>
